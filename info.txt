@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+
+public class Clave {
+
+    //Scanner sc = new Scanner(System.in);
+
+    public void solicitarNumeros() {
+        Console.WriteLine("|***************************************************|");
+        Console.WriteLine("|Por favor ingrese el primer numero                 |");
+        Console.WriteLine("|***************************************************|");
+        int numero1 = validarNumero();
+        Console.WriteLine("|***************************************************|");
+        Console.WriteLine("|Por favor ingrese el segundo numero                |");
+        Console.WriteLine("|***************************************************|");
+        int numero2 = validarNumero();
+        if (validarRepetidos(numero1, numero2)) {
+            generarClave(numero1, numero2);
+        }
+
+    }
+
+    public int validarNumero() {
+        int numero = 0;
+        do {
+            numero = Int32.Parse(Console.ReadLine()); //sc.nextInt();
+            if (numero > 9) {
+                Console.WriteLine("|***************************************************|");
+                Console.WriteLine("|El numero ingresado es mayor a 9, intente de nuevo |");
+                Console.WriteLine("|***************************************************|");
+            }
+            if (numero < 0) {
+                Console.WriteLine("|***************************************************|");
+                Console.WriteLine("|El numero ingresado es negativo, intente de nuevo  |");
+                Console.WriteLine("|***************************************************|");
+            }
+        } while (numero < 0 || numero > 9);
+        return numero;
+    }
+
+    public bool validarRepetidos(int num1, int num2) {
+        bool validador = true;
+        if (num1 == num2) {
+            validador = false;
+            Console.WriteLine("|***************************************************|");
+            Console.WriteLine("|Los numeros no pueden ser iguales                  |");
+            Console.WriteLine("|***************************************************|");
+            solicitarNumeros();
+        }
+        return validador;
+    }
+
+    public void generarClave(int num1, int num2) {
+        int[] clave = new int[4];
+        clave[0] = num1;
+        clave[3] = num2;
+        clave[1] = calcularSegundaCifra(clave[0], clave[3]);
+        clave[2] = calcularTerceraCifra(clave[0], clave[3]);
+        Console.WriteLine("|*********************************************************|");
+        Console.WriteLine("|*********************************************************|");
+        Console.WriteLine("| Su clave es: " + clave[0] + clave[1] + clave[2] + clave[3] + "                                       |");
+        Console.WriteLine("***********************************************************");
+    }
+
+    public int calcularSegundaCifra(int num1Clave, int num2Clave) {
+
+        int sumaNumeros = num1Clave + num2Clave;
+        if (sumaNumeros > 9) {
+            String separarNumeros = sumaNumeros.ToString();
+            char[] delimiterChars={};
+            String[] arregloNumeros = separarNumeros.Split(delimiterChars);
+            sumaNumeros = Int32.Parse(arregloNumeros[0]) + Int32.Parse(arregloNumeros[1]);
+        }
+        return sumaNumeros;
+    }
+
+    public int calcularTerceraCifra(int num1Clave, int num2Clave) {
+        int multNumeros = num1Clave * num2Clave;
+        String separarNumeros = multNumeros.ToString();
+        char[] delimiterChars={};
+        String[] arregloNumeros = separarNumeros.Split(delimiterChars);
+        multNumeros = calcularSegundaCifra(Int32.Parse(arregloNumeros[0]), Int32.Parse(arregloNumeros[1]));
+        return multNumeros;
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+public class GeneradorClave {
+
+    public static void main(String[] args) {
+        Clave asignarClave = new Clave();
+        Console.WriteLine("|El numero ingresado es mayor a 9, intente de nuevo |");
+        Console.WriteLine("|***************************************************|");
+        Console.WriteLine("|Bienvenido al Software Contable UNAD               |");
+        Console.WriteLine("|***************************************************|");
+        Console.WriteLine("|Desarrollado por: Juan C Jimenez                   |");
+        Console.WriteLine("|Código: 1030545398                                 |");
+        Console.WriteLine("|***************************************************|");
+        Console.WriteLine("|Se generara de forma automatica su clave           |");
+        Console.WriteLine("|***************************************************|");
+        asignarClave.solicitarNumeros();
+        
+    }
+    
+}
