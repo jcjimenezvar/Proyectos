@@ -1,110 +1,54 @@
-using System;
-using System.Collections.Generic;
+Introduccion
 
-public class Clave {
+Durante los ultimos años se ha incrementado el numero de instituciones educativas que promueven la educacion a Distancia y a traves de medios virtuales, esta educacion presenta como caracteristica principal la autonomia del estudiante, en la que debe centrarse en desarrollar la capacidad de cada uno de para atender a las necesidades particulares del aprendizaje; por lo tanto, en un programa determinado de formacion, desarrollado en la modalidad de educacion a distancia, cultivar las destrezas y habilidades que para nosotros los estudiantes se vuelven un reto; para facilitar nuestro aprendizaje debemos tomar mayor conciencia acerca de la forma de aprender mas y mejor, y los componentes que pueden ser pertinentes para el desarrollo de este proceso, con el objetivo de lograr la mejora continua del aprendizaje, compartir algunas reflexiones sobre la autonomia en el aprendizaje como un factor clave de una programa en educación a distancia y la incorporacin en el diseño curricular y el modelo pedagogico qu utiliza las TICS, las instituciones que forman tienen las responsabilidad y el comprommiso de desarrollar la capacidad de cada individuo para atender sus propias necesidades de aprendizaje por esto se asume u reto es ir formando alumnos para que vayan dirigiendo su propio aprendizaje
 
-    //Scanner sc = new Scanner(System.in);
-
-    public void solicitarNumeros() {
-        Console.WriteLine("|***************************************************|");
-        Console.WriteLine("|Por favor ingrese el primer numero                 |");
-        Console.WriteLine("|***************************************************|");
-        int numero1 = validarNumero();
-        Console.WriteLine("|***************************************************|");
-        Console.WriteLine("|Por favor ingrese el segundo numero                |");
-        Console.WriteLine("|***************************************************|");
-        int numero2 = validarNumero();
-        if (validarRepetidos(numero1, numero2)) {
-            generarClave(numero1, numero2);
-        }
-
-    }
-
-    public int validarNumero() {
-        int numero = 0;
-        do {
-            numero = Int32.Parse(Console.ReadLine()); //sc.nextInt();
-            if (numero > 9) {
-                Console.WriteLine("|***************************************************|");
-                Console.WriteLine("|El numero ingresado es mayor a 9, intente de nuevo |");
-                Console.WriteLine("|***************************************************|");
-            }
-            if (numero < 0) {
-                Console.WriteLine("|***************************************************|");
-                Console.WriteLine("|El numero ingresado es negativo, intente de nuevo  |");
-                Console.WriteLine("|***************************************************|");
-            }
-        } while (numero < 0 || numero > 9);
-        return numero;
-    }
-
-    public bool validarRepetidos(int num1, int num2) {
-        bool validador = true;
-        if (num1 == num2) {
-            validador = false;
-            Console.WriteLine("|***************************************************|");
-            Console.WriteLine("|Los numeros no pueden ser iguales                  |");
-            Console.WriteLine("|***************************************************|");
-            solicitarNumeros();
-        }
-        return validador;
-    }
-
-    public void generarClave(int num1, int num2) {
-        int[] clave = new int[4];
-        clave[0] = num1;
-        clave[3] = num2;
-        clave[1] = calcularSegundaCifra(clave[0], clave[3]);
-        clave[2] = calcularTerceraCifra(clave[0], clave[3]);
-        Console.WriteLine("|*********************************************************|");
-        Console.WriteLine("|*********************************************************|");
-        Console.WriteLine("| Su clave es: " + clave[0] + clave[1] + clave[2] + clave[3] + "                                       |");
-        Console.WriteLine("***********************************************************");
-    }
-
-    public int calcularSegundaCifra(int num1Clave, int num2Clave) {
-
-        int sumaNumeros = num1Clave + num2Clave;
-        if (sumaNumeros > 9) {
-            String separarNumeros = sumaNumeros.ToString();
-            char[] delimiterChars={};
-            String[] arregloNumeros = separarNumeros.Split(delimiterChars);
-            sumaNumeros = Int32.Parse(arregloNumeros[0]) + Int32.Parse(arregloNumeros[1]);
-        }
-        return sumaNumeros;
-    }
-
-    public int calcularTerceraCifra(int num1Clave, int num2Clave) {
-        int multNumeros = num1Clave * num2Clave;
-        String separarNumeros = multNumeros.ToString();
-        char[] delimiterChars={};
-        String[] arregloNumeros = separarNumeros.Split(delimiterChars);
-        multNumeros = calcularSegundaCifra(Int32.Parse(arregloNumeros[0]), Int32.Parse(arregloNumeros[1]));
-        return multNumeros;
-    }
-}
+El exito en un programa de formación a distancia no solo esta dado por la incorporación de herramientas tecnologicas de información y comunicación, es primordial el trabajo que realice el estudiante en su proceso de auto aprendizaje, y el uso de las estrategias Meta cognitivas y Cognitivas junto con las herramientas tecnologicas, a disposicion del grado de aprendizaje que logre.
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+Justificación
+
+Con la introducción y avance de todas estas tecnologias de la información y la comunicación que representan la educación a distancia y virtual, y los medios para acceder a un gran numero de información que son utilizados en los procesos de aprendizajes de los estudiantes que pertenecemos a esta modalidad que ellas ofrecen ya que son cualidades con suficiente madurez, sentido de responsabilidad, interes y preocupación por cumplir una meta, autonomas, autodidactas, independientes y flexibles con un espiritu critico tolerante y comunicativas que puedan compartir sus conocimientos con los que los necesiten en un futuro mas adelante
 
 
-public class GeneradorClave {
+Objetivos
 
-    public static void main(String[] args) {
-        Clave asignarClave = new Clave();
-        Console.WriteLine("|El numero ingresado es mayor a 9, intente de nuevo |");
-        Console.WriteLine("|***************************************************|");
-        Console.WriteLine("|Bienvenido al Software Contable UNAD               |");
-        Console.WriteLine("|***************************************************|");
-        Console.WriteLine("|Desarrollado por: Juan C Jimenez                   |");
-        Console.WriteLine("|CÃ³digo: 1030545398                                 |");
-        Console.WriteLine("|***************************************************|");
-        Console.WriteLine("|Se generara de forma automatica su clave           |");
-        Console.WriteLine("|***************************************************|");
-        asignarClave.solicitarNumeros();
-        
-    }
-    
-}
+General
+
+Proporcionar al estudiante las capacidades para el desarrollo autonomo individual y de uso en la vida diaria con la finalidad de permitir un sistema innovador, y que alcancen los logros formativos y profesionales
+
+Especificos
+
+Analizar la metodologia del aprendizaje autonomo a traves de las herramientas que permitan al alumno llevar a cabo su proceso de aprendizaje
+
+Identificar la importancia que tiene el aprendizaje autonomo en la educacion virtual y a distancia
+
+Conocer las caracteristicas de la educacion virtual y a distancia permitiendo al estudiante un proceso de aprendizaje optimo con los recurso tecnologicos que existen.
+
+
+Ensayo
+
+>Hoy en di son comunes las ideas y conceptos alrededor de terminos afines como autodireccion, autoeducacion, aprendizaje andragogico, aprendizaje autonomo, aprendizaje planificado por uno mismo, educación a distancia; sin embargo, los planteamientos, desarrollos conceptules y practicas especificas al respecto no son recientes. Antes de la organizacion de centros educativos formales, la auto educación fue casi la unica opcion que tuvieron las personas para instruirse o comprender las cosas que sucedian en su entorno.
+
+La educacion virtual presenta un extenso listado de oportunidades, cuyo fin es favorecer el aprendizaje autonomo, es importante que los estudiantes adoptemos estrategias de aprendizaje, ser mas conscientes acerca de las formas de "aprender y aprender", nosotros, como aprendices autonomos, lograremos la autonomia cuando tengamos una visión propio aprendizaje permitiendonos satisfacer las demandas internas y externas con exito hallando la posibilidad como estudiante de aprender a aprender teniendo una buena capaciadad de control sobre los procesos cognitivos.
+
+Todas estas oportunidades ofrecidas por la educación a distancia virtual, esta apoyado por una serie de tendenciasy herramnientas tecnologicas que tambien se convierten en la mano derech del estuiante como poderosos instrumentos, que coayudan al favorecimiento del aprendizaje autonomo, de esto, la educación a distancia tiene por caracteristica desarrollar el aprendizaje autonomo del estudiante, lo cual plantea al docente el reto de aprovechar las TICS para hacer mas consiente a los participantes de su proceso de aprendizaje y su papel en la regulación del mismo, la cual exige responsabilidad en lo pedagogico y en lo tecnologico
+
+Las multiherramientas de las telecomunicaciones como lo es la telefonia movil, a la que ya accede la mayor parte de la poblacion, esta apartando ademas de su función original, la de comunicar por voz o texto a dos personasm en convertirse en una herramienta multimedia de calidad, completamente equipada. El aprovechamiento de esta herramienta para el aprendizaje cuenta con mas ventajas de las que nos podiamos imaginar, y a veces nos preguntamos ¿ Que mas podemos pedir? LLevar en el bolsillo una maravilla tecnologica y una herramienta de aprendizaje.
+
+El impacto producido por el asistente digital (PDA), esta tecnologia digital nos coloca en un nuevo escenario que nos ofrece la expancion de la tecnologia. Estas ideas representan parte del escenario educativo actual, una sociedad enmarcada por el conocimiento, nuevas tecnologias, alfabetizacion digital, etc, son conceptos que nos sirven para adaptarnos a nuevas realidades en materia educativa.
+
+Las propuestas de cada vez mas programas de estudio, destinados a ciudadanos de diferentes paises que obligaran a diseños mas integradores e interculturales a traves de la constitucion de consorcios internacionales de instituciones y empresas. Amplicar la cobertura, favorecer la equidad y mejorar la calidad y pertinencia de la educación superior, busca que las instituciones de educación superior funcionen com mayor equidad en la formación de ciudadanos y profesionales cientificos creativos y crompometidos en el ejercicio profesional de su competencia.
+
+Las tecnologias de información y comunicación, han abieto nuvas posibilidades para la enseñanza, y el aprendizaje, las tecnologias integradas de información y comunicación son indispensables del proceso educativo. El desarrollo de modelos para la elaboracion de materiales de estudio e instrumentos para el aprendizaje, en donde las plataformas o entornos virtuales se determinan como sitios en los cuales el docente tiene que saber producir mensajes de calidad que garanticen la comunicación eficaz con los estudiantes
+
+Acuerdos y fusiones entre las mas potentes empresas de software para estos espacios virtuales de enseñanza y aprendizaje iran reduciendo el numero de ofertas de calidad en este mercado. Con ello se facilitara la eleccion de las mas adecuada en funcion de las necesidades de cada institución, programa o curso. La accesibilidad de la mayoria de las personas, a la internet mediante conexiones de bajo costo, incluso gratuitos, aprovechando para ello los sitios publicos: escuelas, museos, bibliotecas, centros de formación, restaurantes, supermercados, aeropuertos y otros sitios donde se encuentra dsiponible la red WI-FI
+
+Diversidad y dinamismo "La considerable expancion de la enseñanza / aprendizaje a traves de la red". Al impulsar el desarrollo de tecnologias cada vez mas sofisticadas y aplicables a la educacion virtual, se deben tener en cuenta los grandes cambios que se han dado en la ultima decada en la vida social, laboral y productiva, pero especialmente en lo relacionado con los nuevos desarrollos tecnologicos aplicados ala educación en sus diferentes modalidades. La importancia de las recientes transformaciones en el campo de la educacion, y mas especialmente en el campo de la educación a distancia, ha sido resultado de la interacción de varios procesos simultaneos que permitieron la aparicion y el desarrollo de las TIC en todos los aspectos de la vida cotidiana. La naturaleza de las tecnologias y su alcance global esta incidiendo como un factor determinante en el acceso a la educacion, creando nuevos desafios para las sociedades. Podemos deducir que los estudiantes tenemos toda una artilleria a nuestro servicio en cuanto a tecnologia digital se refiere, solo hemos de hacer uso de nuestro ingenio, creatividad y disciplina, se puede afirmar que la educacion virtual y a distancia es cuestion de voluntad de "ponerle ganas", de sacar al flote nuestras actitudes y aptitudes mentales, para lograr ser competitivos en un medio que cada dia exige profesionales mejor estructurados.
+
+Conclusiones
+
+Todos tenemos derecho a recibir una educacion adecuada y acorde a la situacion en que vivimos, los estudiantes de hot necesitamos poseer aquellos conocimientos y habilidades para aprender a aprender, que permitan ser competentes para participar en los nuevos entornos de aprendizaje.
+
+Los entornos virtuales son en la actualidad el modelo tecnologico que da sustento funcional a las diversas formas de aprendizaje. Sin embargo, desde su concepcion, diseño y posterior empleo en los procesos de aprendizaje, los Entornos visuales deben satisfacer una visión pedagogica que enriquezca su constitucion tecnologica inherente
+
+Ofrecen experiencias de aprendizaje que aseguren una educacion superior a distancia de calidad, debe ser una meta de todas las instituciones educativas que la promueven 
