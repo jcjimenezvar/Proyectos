@@ -1,0 +1,39 @@
+CREATE DATABASE PruebaMuseo
+  
+
+
+CREATE TABLE artistas
+(
+  codigo serial NOT NULL
+  nombre character varying(50),
+  apellido character varying(50),
+  codigo_museo integer,
+  CONSTRAINT artistas_pkey PRIMARY KEY (codigo),
+  CONSTRAINT artistas_codigo_museo_fkey FOREIGN KEY (codigo_museo)
+      REFERENCES public.museos (codigo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+CREATE TABLE museos
+(
+  codigo serial NOT NULL 
+  nombre character varying(50),
+  direccion character varying(30),
+  CONSTRAINT museos_pkey PRIMARY KEY (codigo)
+)
+
+CREATE TABLE pinturas
+(
+  codigo int serial NOT NULL 
+  nombre character varying(50),
+  precio integer,
+  fecha character varying(12),
+  codigo_artista integer,
+  CONSTRAINT pinturas_pkey PRIMARY KEY (codigo),
+  CONSTRAINT pinturas_codigo_artista_fkey FOREIGN KEY (codigo_artista)
+      REFERENCES public.artistas (codigo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+
+
