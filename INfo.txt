@@ -1,7 +1,0 @@
-IterIA es una aplicación que integra inteligencia artificial y machine learning, la cual tiene como objetivo recopilar y estudiar información de los usuarios respecto a sus gustos con el fin de poder brindar sugerencias que estén acorde a sus expectativas al momento de planear o realizar un viaje. IterIA se conforma de tres fases o servicios que se desarrollan antes, durante y después del viaje planeado:
-
-Antes: Consiste que una vez se seleccione el lugar del viaje se brinde al usuario múltiples alternativas para realizar visitas en sitios cercanos que ofrezcan ambientes similares al sitio seleccionado, con el fin de dar a conocer cuales son sus costumbres, gastronomía, entre otros.
-
-Durante: Ofrecerá una amplia variedad de sitios a visitar acorde a los gustos identificados los cuales estarán divididos por temáticas: hoteles, restaurantes, sitios turísticos, entre otros.
-
-Después: Brindará al usuario sugerencias otras ciudades turísticas con información de los sitios de principales o de interés con los que cuenta, en caso de querer ampliar la información el usuario podrá seleccionarlo como próximo destino y retornar a la primera fase para irse familiarizando.
